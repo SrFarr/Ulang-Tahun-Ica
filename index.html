@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultah Ica - Undangan Keren!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --light-color: #f8fafc;
+            --dark-color: #1e293b;
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --gradient-accent: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Particle Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--light-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            padding: 100px 20px 150px;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .glowing-circle {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, rgba(59, 130, 246, 0) 70%);
+            border-radius: 50%;
+            animation: pulse-glow 4s infinite alternate;
+        }
+
+        .glowing-circle:nth-child(1) {
+            top: -150px;
+            left: -150px;
+            animation-delay: 0s;
+        }
+
+        .glowing-circle:nth-child(2) {
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 1s;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            border: 5px solid white;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            animation: float 6s ease-in-out infinite, border-glow 3s infinite alternate;
+            position: relative;
+        }
+
+        @keyframes border-glow {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+
+            100% {
+                box-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
+            }
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .profile-container:hover .profile-img {
+            transform: scale(1.1);
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-weight: 900;
+            text-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, white, #e0e7ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 18px 35px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 25px 0;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: pulse 2s infinite, shake 5s infinite;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            2% {
+                transform: rotate(3deg);
+            }
+
+            4% {
+                transform: rotate(-3deg);
+            }
+
+            6% {
+                transform: rotate(3deg);
+            }
+
+            8% {
+                transform: rotate(-3deg);
+            }
+
+            10% {
+                transform: rotate(0deg);
+            }
+        }
+
+        /* Floating Balloons */
+        .balloon {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            opacity: 0.7;
+            z-index: 1;
+            animation: float-balloon 15s linear infinite;
+        }
+
+        .balloon::before {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 2px;
+            height: 50px;
+            background: #ccc;
+            transform: translateX(-50%);
+        }
+
+        .balloon:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            background: #f87171;
+            animation-delay: 0s;
+            animation-duration: 20s;
+        }
+
+        .balloon:nth-child(2) {
+            top: 30%;
+            right: 15%;
+            background: #60a5fa;
+            animation-delay: 3s;
+            animation-duration: 18s;
+        }
+
+        .balloon:nth-child(3) {
+            top: 50%;
+            left: 20%;
+            background: #34d399;
+            animation-delay: 7s;
+            animation-duration: 25s;
+        }
+
+        @keyframes float-balloon {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-100px) rotate(5deg);
+            }
+
+            100% {
+                transform: translateY(-200px) rotate(0deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            padding: 100px 0 60px;
+            margin-top: -80px;
+            position: relative;
+        }
+
+        .section {
+            margin-bottom: 100px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: var(--gradient-accent);
+            margin: 20px auto;
+            border-radius: 5px;
+            animation: line-grow 1s forwards;
+        }
+
+        @keyframes line-grow {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100px;
+            }
+        }
+
+        .details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+            perspective: 1000px;
+        }
+
+        .detail-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transform-style: preserve-3d;
+        }
+
+        .detail-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: -1;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-15px) rotateY(5deg) scale(1.03);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            color: white;
+        }
+
+        .detail-card:hover::before {
+            opacity: 1;
+        }
+
+        .detail-card:hover .detail-icon {
+            color: white;
+            transform: scale(1.2) rotate(15deg);
+        }
+
+        .detail-card:hover .detail-title {
+            color: white;
+        }
+
+        .detail-icon {
+            font-size: 3.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 25px;
+            display: inline-block;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .detail-title {
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            font-size: 1.4rem;
+            transition: color 0.3s;
+        }
+
+        /* Countdown Styles */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: var(--gradient);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 15px;
+            min-width: 120px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-item::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right,
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(255, 255, 255, 0.15) 50%,
+                    rgba(255, 255, 255, 0) 100%);
+            transform: rotate(30deg);
+            transition: all 0.6s;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.5);
+        }
+
+        .countdown-item:hover::before {
+            left: 100%;
+        }
+
+        .countdown-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .countdown-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 8px;
+            letter-spacing: 1px;
+        }
+
+        /* RSVP Form Styles */
+        .rsvp-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .rsvp-form::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--gradient-accent);
+        }
+
+        .rsvp-form::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.4s ease;
+            background-color: #f8fafc;
+            font-size: 1rem;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+            background-color: white;
+            transform: translateY(-2px);
+        }
+
+        button {
+            background: var(--gradient-accent);
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            width: 100%;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            letter-spacing: 0.5px;
+        }
+
+        button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: -1;
+        }
+
+        button:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(59, 130, 246, 0.5);
+        }
+
+        button:hover::before {
+            opacity: 1;
+        }
+
+        button:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            z-index: -1;
+            animation: float-element 20s infinite linear;
+        }
+
+        @keyframes float-element {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-50px) rotate(180deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 80px 0 50px;
+            margin-top: 100px;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+            position: relative;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
+            background-size: cover;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 2rem;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-8px) scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: scale(1.2);
+                opacity: 0.1;
+            }
+        }
+
+        @keyframes confetti {
+            0% {
+                transform: translateY(-100px) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(720deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* Confetti Elements */
+        .confetti {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            background-color: #f00;
+            opacity: 0;
+            z-index: 999;
+            animation: confetti 3s ease-out forwards;
+            border-radius: 50%;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            .subtitle {
+                font-size: 1.3rem;
+            }
+
+            .profile-container {
+                width: 160px;
+                height: 160px;
+            }
+
+            .countdown-item {
+                min-width: 100px;
+                padding: 20px 25px;
+            }
+
+            .countdown-number {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 80px 20px 120px;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .highlight {
+                padding: 15px 25px;
+                font-size: 1rem;
+            }
+
+            .profile-container {
+                width: 140px;
+                height: 140px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .countdown-item {
+                min-width: 80px;
+                padding: 15px 20px;
+            }
+
+            .countdown-number {
+                font-size: 1.8rem;
+            }
+
+            .rsvp-form {
+                padding: 30px;
+            }
+
+            footer {
+                clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .countdown {
+                gap: 10px;
+            }
+
+            .countdown-item {
+                min-width: 70px;
+                padding: 12px 15px;
+            }
+
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+
+            .detail-card {
+                padding: 30px 20px;
+            }
+
+            .social-links a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+
+        .music-player {
+            margin: 20px 0;
+        }
+
+        #playButton {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            border-radius: 40px;
+            padding: 10px 28px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #playButton:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        #playButton.playing {
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Floating Balloons -->
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+
+    <!-- Floating Elements -->
+    <div class="floating-element" style="top: 20%; left: 5%; font-size: 3rem; color: var(--accent-color);">🎈</div>
+    <div class="floating-element" style="top: 40%; right: 8%; font-size: 3rem; color: var(--primary-color);">🎁</div>
+    <div class="floating-element" style="bottom: 30%; left: 10%; font-size: 3rem; color: #f87171;">🎊</div>
+
+    <header class="animate__animated animate__fadeIn">
+        <!-- Glowing Circles -->
+        <div class="glowing-circle"></div>
+        <div class="glowing-circle"></div>
+
+        <div class="header-content">
+            <div class="profile-container animate__animated animate__zoomIn">
+                <img src="WhatsApp Image 2025-06-05 at 07.14.39_0264e12b.jpg" alt="Foto ica" class="profile-img">
+            </div>
+            <h1 class="animate__animated animate__fadeInUp">UNDANGAN ULANG TAHUN</h1>
+            <p class="subtitle animate__animated animate__fadeInUp animate__delay-1s">Ica Berusia 17 Tahun!</p>
+            <div class="highlight animate__animated animate__pulse animate__infinite">Minggu, 23 November 2025</div>
+        </div>
+        <!-- Add this right after the profile-container div -->
+        <div class="music-player animate__animated animate__fadeInUp animate__delay-2s">
+            <button id="playButton">
+                <i class="fas fa-music"></i> Putar Lagu Ulang Tahun
+            </button>
+            <audio id="birthdaySong" loop>
+                <source src="Ultah2.mp3" type="audio/mpeg">
+                Browser Anda tidak mendukung elemen audio.
+            </audio>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="section" id="about">
+                <h2 class="animate__animated animate__fadeIn">Tentang Acara</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem;"
+                    class="animate__animated animate__fadeIn animate__delay-1s">
+                    <span style="font-size: 1.5rem; color: var(--primary-color);">🎉</span><br>
+                    Hai Squad! Aku Ica mengundang kalian semua untuk merayakan momen spesial ulang tahunku yang ke-17!
+                    Bakal ada banyak banget hal seru mulai dari makanan enak, games keren, photobooth aesthetic, sampai
+                    hadiah-hadiah menarik.
+                    Jangan sampe ketinggalan ya, karena ini bakal jadi momen yang epic banget!
+                </p>
+
+                <div class="details">
+                    <div class="detail-card animate__animated animate__fadeInLeft">
+                        <div class="detail-icon">📍</div>
+                        <h3 class="detail-title">Lokasi Acara</h3>
+                        <p>Rumah Ica<br>Jl. Kenangan No. 17, Kota Bahagia</p>
+                        <p style="margin-top: 15px;">
+                            <a href="https://maps.google.com"
+                                style="color: var(--accent-color); text-decoration: none; font-weight: 600; display: inline-block; padding: 8px 15px; background: rgba(59,130,246,0.1); border-radius: 50px; transition: all 0.3s;">
+                                <i class="fas fa-map-marker-alt"></i> Buka di Google Maps
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="detail-card animate__animated animate__fadeInUp">
+                        <div class="detail-icon">⏰</div>
+                        <h3 class="detail-title">Waktu Acara</h3>
+                        <p>Minggu, 23 November 2025<br>Pukul 15.00 - Selesai</p>
+                        <p style="margin-top: 15px; color: var(--secondary-color); font-weight: 600;">
+                            <i class="fas fa-clock"></i> Jangan telat ya!
+                        </p>
+                    </div>
+
+                    <div class="detail-card animate__animated animate__fadeInRight">
+                        <div class="detail-icon">🎉</div>
+                        <h3 class="detail-title">Dresscode</h3>
+                        <p>Casual Kekinian<br>(Warna biru lebih oke!)</p>
+                        <p style="margin-top: 15px; color: var(--secondary-color); font-weight: 600;">
+                            <i class="fas fa-tshirt"></i> Bebas tapi tetap stylish!
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="countdown-section">
+                <h2 class="animate__animated animate__fadeIn">Hitungan Mundur</h2>
+                <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem;"
+                    class="animate__animated animate__fadeIn animate__delay-1s">
+                    Tunggu apalagi nih? Acara spesial ini akan dimulai dalam:
+                </p>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item animate__animated animate__zoomIn animate__delay-2s">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Hari</div>
+                    </div>
+                    <div class="countdown-item animate__animated animate__zoomIn animate__delay-2s">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Jam</div>
+                    </div>
+                    <div class="countdown-item animate__animated animate__zoomIn animate__delay-2s">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Menit</div>
+                    </div>
+                    <div class="countdown-item animate__animated animate__zoomIn animate__delay-2s">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Detik</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="rsvp">
+                <h2 class="animate__animated animate__fadeIn">Konfirmasi Kehadiran</h2>
+                <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;"
+                    class="animate__animated animate__fadeIn animate__delay-1s">
+                    Yuk konfirmasi kehadiranmu paling lambat 15 September 2025!<br>
+                    Isi form di bawah ini ya, biar aku bisa persiapkan semuanya dengan baik.
+                </p>
+
+                <form class="rsvp-form animate__animated animate__fadeInUp" id="rsvpForm">
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> Nama Lengkap</label>
+                        <input type="text" id="name" required placeholder="Masukkan nama kamu">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="school"><i class="fas fa-graduation-cap"></i> Asal Sekolah/Kelas</label>
+                        <input type="text" id="school" required placeholder="Contoh: SMAN 1 Jakarta - XII IPA 2">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="attendance"><i class="fas fa-calendar-check"></i> Konfirmasi Kehadiran</label>
+                        <select id="attendance" required>
+                            <option value="" disabled selected>Pilih opsi</option>
+                            <option value="yes">Akan Hadir (Pasti datang!)</option>
+                            <option value="no">Tidak Bisa Hadir (Sedih deh)</option>
+                            <option value="maybe">Masih Ragu (Nanti kabarin lagi)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message"><i class="fas fa-comment"></i> Pesan untuk Ica (opsional)</label>
+                        <textarea id="message" rows="4"
+                            placeholder="Tulis pesan spesial atau ucapan untuk Ica di sini..."></textarea>
+                    </div>
+
+                    <button type="submit" class="animate__animated animate__pulse animate__delay-3s animate__infinite">
+                        <i class="fas fa-paper-plane"></i> Kirim Konfirmasi
+                    </button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p style="font-size: 1.5rem; margin-bottom: 20px; font-weight: 600;">Aku tunggu kedatangan kalian!</p>
+            <p style="max-width: 600px; margin: 0 auto 30px; opacity: 0.8;">
+                Jangan lupa bawa mood baik dan senyuman terlebarrr! Ini bakal jadi momen yang ga bakal terlupakan.
+            </p>
+            <div class="social-links">
+                <a href="https://instagram.com/fajri" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/6281234567890" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://twitter.com/fajri" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p style="margin-top: 50px; opacity: 0.7;">© 2024 Ultah Ica - Made with ❤️</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particle.js Config
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#3b82f6"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 5,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#3b82f6",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+        // Countdown Timer
+        function updateCountdown() {
+            const eventDate = new Date("June 15, 2024 15:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById("countdown").innerHTML = "<div style='font-size: 2rem; color: var(--primary-color);'>Acara Sudah Dimulai!</div>";
+            }
+        }
+
+        const countdownTimer = setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Scroll Animation
+        function checkScroll() {
+            const sections = document.querySelectorAll('.section');
+            const windowHeight = window.innerHeight;
+            const scrollPosition = window.scrollY;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionTrigger = sectionTop + sectionHeight / 3;
+
+                if (scrollPosition + windowHeight > sectionTrigger) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+
+        // Form Submission
+        document.getElementById('rsvpForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Create confetti effect
+            createConfetti();
+
+            // Show success message
+            Swal.fire({
+                title: 'Terima Kasih!',
+                text: 'Konfirmasi kehadiranmu berhasil dikirim. Sampai jumpa di acaraku ya!',
+                icon: 'success',
+                confirmButtonColor: '#3b82f6',
+                confirmButtonText: 'Oke!'
+            });
+
+            // Reset form
+            this.reset();
+        });
+
+        // Confetti Effect
+        function createConfetti() {
+            const colors = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981'];
+
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+
+
+                // Random shape
+                if (Math.random() > 0.5) {
+                    confetti.style.borderRadius = '50%';
+                } else {
+                    confetti.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+                }
+
+                document.body.appendChild(confetti);
+
+                // Remove confetti after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3000);
+            }
+        }
+
+        // Music Player Functionality
+        const playButton = document.getElementById('playButton');
+        const birthdaySong = document.getElementById('birthdaySong');
+        let isPlaying = false;
+
+        // Function to toggle music
+        function toggleMusic() {
+            if (isPlaying) {
+                birthdaySong.pause();
+                playButton.innerHTML = '<i class="fas fa-music"></i> Putar Lagu Ulang Tahun';
+                playButton.classList.remove('playing');
+            } else {
+                birthdaySong.play()
+                    .then(() => {
+                        playButton.innerHTML = '<i class="fas fa-pause"></i> Jeda Lagu';
+                        playButton.classList.add('playing');
+                    })
+                    .catch(error => {
+                        console.error("Autoplay prevented:", error);
+                        // Show a message to user to interact first
+                        Swal.fire({
+                            title: 'Putar Musik',
+                            text: 'Klik tombol putar lagi untuk memulai musik setelah berinteraksi dengan halaman',
+                            icon: 'info',
+                            confirmButtonColor: '#3b82f6'
+                        });
+                    });
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Event listener for play button
+        playButton.addEventListener('click', toggleMusic);
+
+        // Enable audio after any user interaction
+        document.body.addEventListener('click', function () {
+            // This helps with autoplay policies
+            birthdaySong.volume = 0.5;
+        }, { once: true });
+        // SweetAlert2 for popup messages
+        const SwalScript = document.createElement('script');
+        SwalScript.src = 'https://cdn.jsdelivr.net/npm/sweetalert2@11';
+        document.head.appendChild(SwalScript);
+    </script>
+</body>
+
+</html>
